@@ -1,5 +1,5 @@
-#include<studio.h>
-#include<studlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 #include<time.h>
 #include<string.h>
 FILE*lottery_txt;
@@ -8,7 +8,7 @@ void get_6_RandNum(){
     int k=0,m,box;
     while(k<=5){
         box = rand()%69+1;
-        for(m=0; m<k: m++){
+        for(m=0; m<k; m++){
             if(box==r[m])break;
         }
         if(m==k){
@@ -17,13 +17,16 @@ void get_6_RandNum(){
         }
     }
     r[6]=rand()%10+1;//special number
-    for(m=0;m,=6;m++){
-        fprint(lottery_txt,"%02d",r[m]);
+    for(m=0;m<=6;m++){
+        fprintf(lottery_txt,"%02d",r[m]);
     }
 }
 
 
 int main(){
+    int a,k;
+    printf("How many do you want to buy?");
+    scanf("%d",&k);
     printf("\noutput you %d set(s) of lottery to lottery.txt",k);
 
     srand(time(NULL));
@@ -32,13 +35,13 @@ int main(){
     time(&now);
     char* dt=ctime(&now);
     dt[strlen(dt)-1]=0;
-    fprintf(lottery_txt,"=========lotto649=========\n=5s=\n",dt);
+    fprintf(lottery_txt,"=========lotto649=========\n=%s=\n",dt);
     for(a=1;a<=k;a++){
         fprintf(lottery_txt,"=[%d]:",a);
         get_6_RandNum();
         fprintf(lottery_txt,"=\n");
     }
-    for(;a,=5;a++)
+    for(;a<=5;a++)
     fprintf(lottery_txt,"=[%d]:== == == == == == == =\n",a);
     fprintf(lottery_txt,"=========csie@CGU=========");
     fclose(lottery_txt);
